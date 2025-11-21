@@ -1,0 +1,48 @@
+.popup {
+    position: fixed;        /* se posiciona relativo a la ventana */
+    top: 50%;               /* lo centramos vertical */
+    left: 50%;              /* lo centramos horizontal */
+    transform: translate(-50%, -50%); /* corrige el desplazamiento */
+    background-color: cadetblue;
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* sombra para destacarlo */
+    z-index: 1000;          /* asegura que esté por encima de otros elementos */
+    width: 300px;           /* tamaño fijo opcional */
+    text-align: center;     /* centrado de texto */
+}
+
+ul.lista-tareas {
+    list-style: none; /* quitamos los bullets */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+ul.lista-tareas li {
+    display: inline-block;
+    width: 30%; /* ajusta según quieras */
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+}
+
+ul.lista-tareas li:nth-child(3n) {
+  text-align: center; /* para la columna de urgencia */
+}
+
+ul.lista-tareas li.urgente {
+    color: #ff4d4f;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+ul.lista-tareas li.titulo {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}

@@ -1,0 +1,51 @@
+<div>
+    <h1>Hola esto es una prueba de h1 en list.html</h1>
+    <div>
+
+        <h2>Lista: {{ nombre }}</h2>
+        <button (click)="abrir()">Añadir tarea</button>
+
+        @if (visible) {
+            <div class = "popup">
+                <input #nombreNuevaTarea type="text" id="nombreNuevaTarea" name="nombreNuevaTarea">
+                <input #descripcionNuevaTarea type="text" id="descripcionNuevaTarea" name="descripcionNuevaTarea">
+                <label for="urgrencia">
+                    <input #urgenciaNuevaTarea type="checkbox" id="urgencia">
+                    Urgente
+                </label>                
+                <button (click)="addTarea(nombreNuevaTarea.value, descripcionNuevaTarea.value, urgenciaNuevaTarea.checked )">Añadir tarea</button>
+                <button (click)="cerrar()">X</button>
+            </div>
+        }      
+        
+        <button (click)="eliminarUltimaTarea()">Eliminar tarea</button>
+
+        
+
+        <!-- @for (tarea of lista; track tarea.nombre) {
+            <li>{{ tarea.nombre }}</li>
+            <li>{{ tarea.descripcion }}</li>
+            @if (tarea.urgente) {
+                <li>&#x26A0;</li>
+            }
+            
+        } @empty {
+            <li>Hora de tocarse los cojones</li>
+        } -->
+        <ul class="lista-tareas">
+            @for (tarea of lista; track tarea.nombre) {
+                <li class="titulo">{{ tarea.nombre }}</li>
+                <li>{{ tarea.descripcion }}</li>
+                @if (tarea.urgente) {
+                    <li class="urgente">&#x26A0;</li>
+                } @else {
+                    <li></li>
+                }
+            } @empty {
+                <li colspan="3">Hora de tocarse los cojones</li>
+            }
+        </ul>
+
+        
+    </div>
+</div>
