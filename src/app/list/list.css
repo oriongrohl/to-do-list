@@ -1,9 +1,139 @@
+/* Contenedor principal de toda la lista */
+.tarea {
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(227, 227, 227, 0.1);
+    display: flex;
+    justify-content: left;   /* centra la caja en la página */
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 900px;
+    background-color: #474747;
+    padding:0px;
+}
+
+/* Caja que engloba título, botones */
+.lista {
+    padding: 2rem;
+    width: 40%;
+    margin-left:0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centra horizontalmente */
+    gap: 1.5rem;
+}
+
+/* Título centrado */
+.lista h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Botones centrados */
+.lista > button, .lista .botones {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Popup de añadir tarea */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #007bff;
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 1000;
+    width: 320px;
+    text-align: center;
+}
+
+
+
+/* Tabla de tareas */
+.tabla-tareas {
+    max-width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+/* Encabezado de tabla */
+.tabla-tareas th {
+    padding: 0.8rem;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Filas */
+.tabla-tareas td {
+    padding: 0.8rem;
+    border-bottom: 1px solid #eee;
+}
+
+/* Fila alternada */
+.tabla-tareas tr:nth-child(even) td {
+}
+
+/* Columna de urgencia centrada y destacada */
+.tabla-tareas td.urgente {
+    text-align: center;
+    color: #e63946;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Hover en filas */
+.tabla-tareas tr:hover td {
+    transition: 0.3s;
+}
+
+/* Botones */
+.boton-lista {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    transition: 0.2s;
+}
+
+.boton-lista:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive: en pantallas pequeñas */
+@media (max-width: 600px) {
+    .lista {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .tabla-tareas th, .tabla-tareas td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .popup {
+        width: 90%;
+        padding: 1rem;
+    }
+}
+
+
 .popup {
     position: fixed;        /* se posiciona relativo a la ventana */
     top: 50%;               /* lo centramos vertical */
     left: 50%;              /* lo centramos horizontal */
     transform: translate(-50%, -50%); /* corrige el desplazamiento */
-    background-color: cadetblue;
+    background-color: rgb(91, 91, 91);
     color: white;
     padding: 2rem;
     border-radius: 10px;
@@ -13,7 +143,7 @@
     text-align: center;     /* centrado de texto */
 }
 
-ul.lista-tareas {
+ul.tabla-tareas {
     list-style: none; /* quitamos los bullets */
     padding: 0;
     margin: 0;
@@ -23,7 +153,7 @@ ul.lista-tareas {
     font-family: Arial, sans-serif;
 }
 
-ul.lista-tareas li {
+ul.tabla-tareas li {
     display: inline-block;
     width: 30%; /* ajusta según quieras */
     padding: 0.5rem;
@@ -32,17 +162,16 @@ ul.lista-tareas li {
     vertical-align: middle;
 }
 
-ul.lista-tareas li:nth-child(3n) {
+ul.tabla-tareas li:nth-child(3n) {
   text-align: center; /* para la columna de urgencia */
 }
 
-ul.lista-tareas li.urgente {
+ul.tabla-tareas li.urgente {
     color: #ff4d4f;
     font-weight: bold;
     font-size: 1.2rem;
 }
 
-ul.lista-tareas li.titulo {
+ul.tabla-tareas li.titulo {
     font-weight: bold;
-    background-color: #f0f0f0;
 }

@@ -1,51 +1,55 @@
-<div>
-    <h1>Hola esto es una prueba de h1 en list.html</h1>
-    <div>
-
+<h1 style="text-align: center;">To-do List</h1>
+<div class = "tarea">
+    <div class = "lista">
         <h2>Lista: {{ nombre }}</h2>
-        <button (click)="abrir()">Añadir tarea</button>
-
-        @if (visible) {
-            <div class = "popup">
-                <input #nombreNuevaTarea type="text" id="nombreNuevaTarea" name="nombreNuevaTarea">
-                <input #descripcionNuevaTarea type="text" id="descripcionNuevaTarea" name="descripcionNuevaTarea">
-                <label for="urgrencia">
-                    <input #urgenciaNuevaTarea type="checkbox" id="urgencia">
-                    Urgente
-                </label>                
-                <button (click)="addTarea(nombreNuevaTarea.value, descripcionNuevaTarea.value, urgenciaNuevaTarea.checked )">Añadir tarea</button>
-                <button (click)="cerrar()">X</button>
-            </div>
-        }      
-        
-        <button (click)="eliminarUltimaTarea()">Eliminar tarea</button>
-
-        
-
-        <!-- @for (tarea of lista; track tarea.nombre) {
-            <li>{{ tarea.nombre }}</li>
-            <li>{{ tarea.descripcion }}</li>
-            @if (tarea.urgente) {
-                <li>&#x26A0;</li>
-            }
-            
-        } @empty {
-            <li>Hora de tocarse los cojones</li>
-        } -->
-        <ul class="lista-tareas">
-            @for (tarea of lista; track tarea.nombre) {
-                <li class="titulo">{{ tarea.nombre }}</li>
-                <li>{{ tarea.descripcion }}</li>
-                @if (tarea.urgente) {
-                    <li class="urgente">&#x26A0;</li>
-                } @else {
-                    <li></li>
-                }
-            } @empty {
-                <li colspan="3">Hora de tocarse los cojones</li>
-            }
-        </ul>
-
-        
+        <button class="boton-lista" (click)="abrir()">Añadir tarea</button>
+        <button style="margin-right: 0px;" class="boton-lista" (click)="eliminarUltimaTarea()">Eliminar tarea</button>
     </div>
+    @if (visible) {
+        <div class = "popup">
+            <button style = "background-color: rgb(99, 99, 99);" class = "btn " (click)="cerrar()">X</button>
+            <br>
+            <input #nombreNuevaTarea type="text" id="nombreNuevaTarea" name="nombreNuevaTarea" placeholder="Nombre de la nueva tarea" required>
+            <p style = "color: red;">{{ errorNombreVacio }}</p>
+            <input #descripcionNuevaTarea type="text" id="descripcionNuevaTarea" name="descripcionNuevaTarea" placeholder="Descripcion...">
+            <label for="urgencia">
+                <input #urgenciaNuevaTarea type="checkbox" id="urgencia">
+                Urgente
+            </label>
+            <button class="boton-lista" (click)="addTarea(nombreNuevaTarea.value, descripcionNuevaTarea.value, urgenciaNuevaTarea.checked )">Añadir tarea</button>
+            
+        </div>
+    }
+    <div>
+        <table class="tabla-tareas" style = "background-color: rgb(39, 39, 39);
+                                            display: flex;
+                                            justify-content: center;">
+            
+            
+            <tr>
+                
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th>Urgencia</th>
+                
+            @for (tarea of lista; track tarea.nombre) {
+                <!-- @if (lista.length === 1) { -->
+                
+                
+                <tr>
+                    <th class="titulo">{{ tarea.nombre }}</th>
+                    <th>{{ tarea.descripcion }}</th>
+                    @if (tarea.urgente) {
+                        <th class="urgente">&#x26A0;</th>
+                    } @else {
+                        <th></th>
+                    }
+                </tr>
+            } @empty {
+                <h1 style = "margin:auto">Hora de tocarse los cojones</h1>
+            }
+            </tr>
+        </table>
+    </div>
+    
 </div>
