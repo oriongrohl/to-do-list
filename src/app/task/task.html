@@ -1,0 +1,10 @@
+<div class="task-item" [class.urgente]="tarea.urgente">
+    <input type="checkbox">
+    <div class="task-details">
+        <strong>{{ tarea.nombre }}</strong> 
+        <span *ngIf="tarea.urgente" class="urgente-label"> (¡URGENTE!)</span>
+        <p>{{ tarea.descripcion }}</p>
+        <small>Fecha límite: {{ tarea.fecha }}</small>
+    </div>
+    <button>Eliminar</button>
+</div>

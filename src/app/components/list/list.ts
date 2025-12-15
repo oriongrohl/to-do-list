@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
+import { Tarea } from '../../models/tarea-model';
 
-export interface Tarea {
-    nombre: string,
-    descripcion: string,
-    urgente: boolean,
-    fecha: Date
-}
+
 
 
 @Component({
@@ -16,7 +12,7 @@ export interface Tarea {
 })
 
 
-export class ListaComponent {
+export class ListComponent {
     public nombre: string = "cosas que hacer";
     public errorNombreVacio: string = "";
     public lista: Tarea[] = [{nombre: "deberes angular", descripcion: "terminar los ejercicios",urgente: false, fecha: new Date(2025,12,3)}];

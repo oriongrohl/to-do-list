@@ -21,35 +21,25 @@
         </div>
     }
     <div>
-        <table class="tabla-tareas" style = "background-color: rgb(39, 39, 39);
-                                            display: flex;
-                                            justify-content: center;">
-            
-            
-            <tr>
-                
+        <!-- <tr> -->
+
                 <th>Titulo</th>
                 <th>Descripcion</th>
                 <th>Urgencia</th>
                 
-            @for (tarea of lista; track tarea.nombre) {
+            <!-- @for (tarea of lista; track tarea.nombre) { -->
                 <!-- @if (lista.length === 1) { -->
-                
-                
                 <tr>
-                    <th class="titulo">{{ tarea.nombre }}</th>
-                    <th>{{ tarea.descripcion }}</th>
-                    @if (tarea.urgente) {
-                        <th class="urgente">&#x26A0;</th>
-                    } @else {
-                        <th></th>
-                    }
+                    <app-task 
+                        *ngFor="let task of lista" 
+                        [tarea]="task">
+                    </app-task>
                 </tr>
-            } @empty {
-                <h1 style = "margin:auto">Hora de tocarse los cojones</h1>
-            }
-            </tr>
-        </table>
+            <!-- } @empty { -->
+                <!-- <h1 style = "margin:auto">Hora de tocarse los cojones</h1> -->
+            <!-- } -->
+        <!-- </tr> -->
     </div>
+    
     
 </div>

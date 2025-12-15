@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ListaModule } from './list/list.module';
+import { AppModule } from './app-module';
+// import { ListaModule_1 as ListaModule } from "./components/list/list.module";
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,ListaModule],
+  imports: [RouterOutlet, AppModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
